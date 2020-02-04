@@ -2,6 +2,8 @@ var hourlyRate;
 var mainDisplay = document.getElementById("main-display");
 var startButton = document.getElementById("main-input").elements.namedItem("start-button")
 var currentMoneyValue = 0;
+
+var activeIncrementValue = 1;
 var activeIncrementTime;
 
 var clockProcess;
@@ -19,14 +21,19 @@ function updateDisplay(valueInPennies){
 }
 
 function runClockMain(){
-    currentMoneyValue += 1;
+    currentMoneyValue += activeIncrementValue;
     updateDisplay(currentMoneyValue);
 }
 
 function initClock(input){
     //new, time based code
     var penniesPerMinute = input/60
-    activeIncrementTime = 60000 / penniesPerMinute;
+    while ((60000/penniesPerMinute) < 1){
+        penniesPerMinute /= 2;
+        activeIncrementValue += 1
+        console.log("penniesPerMinute now: " + penniesPerMinute);
+    }
+        activeIncrementTime = 60000 / penniesPerMinute;
     //old, fixed interval code
     //var output = ((input/60)/60)/incrementsPerSecond
     //activeIncrementTime = 1000 / incrementsPerSecond;
@@ -50,6 +57,7 @@ function startPressed(){
 
 function resetPressed(){
     currentMoneyValue = 0;
+    activeIncrementValue = 1;
     updateDisplay(currentMoneyValue);
     if(clockRunning){
         clearInterval(clockProcess);
