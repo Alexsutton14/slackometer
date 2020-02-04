@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>The Slack-o-meter</title>
+        <link href="style.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="input">
+            <form id="main-input">
+                <p class="label">Enter your hourly wage</p>
+                <input type="number" name="hourly-rate" id="hourly-rate" value="0.00">
+                <input type="button" name="start-button" value="Start" onclick="startPressed()">
+                <input type="button" name="reset-button" value="Reset" onclick="resetPressed()">
+            </form>
+        </div>
+        <div class="main-display">
+            <span id="currency-display" class="display-text">£</span>
+            <span id="main-display" class="display-text">0.00</span>
+        </div>
+        <script src="clock.js"></script>
+      </body>
+</html>
