@@ -44,6 +44,7 @@ function initClock(input){
 
 function startPressed(){
     if(!clockRunning){
+        activeIncrementValue = 1;
         hourlyRate = (parseFloat(document.getElementById("main-input").elements.namedItem("hourly-rate").value).toFixed(2)*100);
         hourlyRate = checkInput(hourlyRate);
         startButton.value = "Stop";
