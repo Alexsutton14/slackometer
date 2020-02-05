@@ -30,7 +30,7 @@ function initClock(input){
     var penniesPerMinute = input/60
     while ((60000/penniesPerMinute) < 1){
         penniesPerMinute /= 2;
-        activeIncrementValue += 1
+        activeIncrementValue *= 2
         console.log("penniesPerMinute now: " + penniesPerMinute);
     }
         activeIncrementTime = 60000 / penniesPerMinute;
